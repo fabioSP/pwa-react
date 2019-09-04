@@ -31,7 +31,7 @@ export class Banner extends React.Component {
       
       render(){
           return (
-            <AlertDismissible/>
+            <h1>Banner</h1>
           )
       }
 }
