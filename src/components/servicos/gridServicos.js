@@ -1,53 +1,19 @@
-import React from 'react';
-import { MDBDataTable } from 'mdbreact';
+import React, { Component } from 'react';
+import MaterialTable from 'material-table';
+import HistoricoServ from './histServicos'
 
-export const DatatablePage = () => {
-    const data = {
+const Table = () => {
+    const [state] = React.useState({
         columns: [
-            {
-                label: '#',
-                field: 'id',
-                sort: 'asc',
-                width: 150
-            },
-            {
-                label: 'Protocolo',
-                field: 'protocolo',
-                sort: 'asc',
-                width: 150
-            },
-            {
-                label: 'ATC',
-                field: 'atc',
-                sort: 'asc',
-                width: 270
-            },
-            {
-                label: 'PDE',
-                field: 'pde',
-                sort: 'asc',
-                width: 200
-            },
-            {
-                label: 'Cidade',
-                field: 'cidade',
-                sort: 'asc',
-                width: 100
-            },
-            {
-                label: 'Logradouro',
-                field: 'logradouro',
-                sort: 'asc',
-                width: 150
-            },
-            {
-                label: 'Status',
-                field: 'status',
-                sort: 'asc',
-                width: 100
-            },
+            { title: '#', field: 'id' },
+            { title: 'Protocolo', field: 'protocolo' },
+            { title: 'ATC', field: 'atc' },
+            { title: 'PDE', field: 'pde' },
+            { title: 'Cidade', field: 'cidade' },
+            { title: 'Logradouro', field: 'logradouro' },
+            { title: 'Status', field: 'status' }
         ],
-        rows: [
+        data: [
             {
                 id: '1',
                 protocolo: '123',
@@ -64,7 +30,7 @@ export const DatatablePage = () => {
                 pde: '12345',
                 cidade: 'Morungaba',
                 logradouro: 'Bueno',
-                status: 'Pendente'
+                status: 'Programado'
             },
             {
                 id: '3',
@@ -73,7 +39,7 @@ export const DatatablePage = () => {
                 pde: '12345',
                 cidade: 'Morungaba',
                 logradouro: 'Bueno',
-                status: 'Pendente'
+                status: 'Em andamento'
             },
             {
                 id: '4',
@@ -82,7 +48,7 @@ export const DatatablePage = () => {
                 pde: '12345',
                 cidade: 'Morungaba',
                 logradouro: 'Bueno',
-                status: 'Pendente'
+                status: 'Encerrado'
             },
             {
                 id: '5',
@@ -91,13 +57,13 @@ export const DatatablePage = () => {
                 pde: '12345',
                 cidade: 'Morungaba',
                 logradouro: 'Bueno',
-                status: 'Pendente'
+                status: 'Cancelado'
             },
             {
                 id: '6',
                 protocolo: '123',
                 atc: '1234',
-                pde: '12345',
+                pde: '0000840858',
                 cidade: 'Morungaba',
                 logradouro: 'Bueno',
                 status: 'Pendente'
@@ -113,7 +79,7 @@ export const DatatablePage = () => {
             },
             {
                 id: '8',
-                protocolo: '123',
+                protocolo: '1921681100',
                 atc: '1234',
                 pde: '12345',
                 cidade: 'Morungaba',
@@ -560,104 +526,108 @@ export const DatatablePage = () => {
                 cidade: 'Morungaba',
                 logradouro: 'Bueno',
                 status: 'Pendente'
-            },
+            }
         ]
-    };
+    });
+
+
 
     return (
-        <MDBDataTable
-            striped
-            bordered
-            hover
-            data={data}
+        <MaterialTable
+            title=""
+            columns={state.columns}
+            data={state.data}
+            localization={{
+                body: {
+                    addTooltip: 'Adicionar',
+                    editTooltip: 'Editar',
+                    deleteTooltip: 'Deletar',
+                    emptyDataSourceMessage: 'Nenhum registro encontrado',
+                    editRow: {
+                        saveTooltip: 'Salvar',
+                        cancelTooltip: 'Cancelar',
+                        deleteText: 'Deseja realmente deletar este registro?'
+                    }
+                },
+                toolbar: {
+                    searchPlaceholder: 'Localizar',
+                    searchTooltip: 'Procurar',
+                    exportTitle: 'Baixar',
+                    exportName: 'Exportar para CSV'
+                },
+                pagination: {
+                    labelRowsSelect: 'Linhas por página',
+                    labelDisplayedRows: ' {from}-{to} de {count}',
+                    firstTooltip: 'Primeira página',
+                    previousTooltip: 'Página anterior',
+                    nextTooltip: 'Próxima página',
+                    lastTooltip: 'Última página'
+                },
+                header: {
+                    actions: 'Ações'
+                }
+            }}
+            actions={[
+                {
+                    icon: 'edit',
+                    tooltip: 'Editar',
+                    onClick: (event) => alert("Test")
+                }
+            ]}
+            detailPanel={ [
+                {
+                    tooltip: 'Mostrar',
+                    render: rowData => {
+                        return (
+                            <HistoricoServ/>
+                        )
+                    }
+                }
+            ]}
+            options={{
+                exportButton: true,
+                exportFileName: 'Serviços',
+                exportAllData: true
+            }}
+            // editable={{
+            //     onRowAdd: newData =>
+            //         new Promise(resolve => {
+            //             setTimeout(() => {
+            //                 resolve();
+            //                 const data = [...state.data];
+            //                 data.push(newData);
+            //                 setState({ ...state, data });
+            //             }, 600);
+            //         }),
+            //     onRowUpdate: (newData, oldData) =>
+            //         new Promise(resolve => {
+            //             setTimeout(() => {
+            //                 resolve();
+            //                 const data = [...state.data];
+            //                 data[data.indexOf(oldData)] = newData;
+            //                 setState({ ...state, data });
+            //             }, 600);
+            //         }),
+            //     onRowDelete: oldData =>
+            //         new Promise(resolve => {
+            //             setTimeout(() => {
+            //                 resolve();
+            //                 const data = [...state.data];
+            //                 data.splice(data.indexOf(oldData), 1);
+            //                 setState({ ...state, data });
+            //             }, 600);
+            //         }),
+            // }}
         />
     );
 }
 
-//export default DatatablePage;
-
-
-/*import React from 'react'
-import { Table } from 'react-bootstrap'
-import './style.css'
-
-const $ = require('jquery');
-
-
-export function gridServicos() {
-    const DataTable = require('datatables.net');
-    const tb = (
-        <Table id="gridServicos" striped bordered hover size="sm" variant="dark">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Protocolo</th>
-                    <th>ATC</th>
-                    <th>PDE</th>
-                    <th>Cidade</th>
-                    <th>Logradouro</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>123</td>
-                    <td>1234</td>
-                    <td>12345</td>
-                    <td>Morungaba</td>
-                    <td>Bueno</td>
-                    <td>Pendente</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>123</td>
-                    <td>1234</td>
-                    <td>12345</td>
-                    <td>Morungaba</td>
-                    <td>Bueno</td>
-                    <td>Cancelado</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>123</td>
-                    <td>1234</td>
-                    <td>12345</td>
-                    <td>Morungaba</td>
-                    <td>Bueno</td>
-                    <td>Programado</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>123</td>
-                    <td>1234</td>
-                    <td>12345</td>
-                    <td>Morungaba</td>
-                    <td>Bueno</td>
-                    <td>Em andamento</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>123</td>
-                    <td>1234</td>
-                    <td>12345</td>
-                    <td>Morungaba</td>
-                    <td>Bueno</td>
-                    <td>Encerrado</td>
-                </tr>
-            </tbody>
-        </Table>
-    )
-
-    $().ready(function () {
-        $('#gridServicos').DataTable({
-            responsive: true,
-
-        });
-    });
-
-    return (
-        tb
-    )
+export default class DataTablePage extends Component {
+    render() {
+        return (
+            <div>
+                <Table />
+            </div>
+        )
+    }
 }
-*/

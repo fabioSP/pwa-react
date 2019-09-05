@@ -1,12 +1,8 @@
 import React from 'react'
 import { Container, Card } from 'react-bootstrap';
-import { buscarServico } from '../components/servicos/frmServico';
-import { DatatablePage } from '../components/servicos/gridServicos'
-import TestTable from '../components/servicos/testTable'
-
-const buscar = buscarServico();
-
-const grid = DatatablePage();
+import DataTablePage from '../components/servicos/gridServicos'
+import Servico from '../components/servicos/frmServico'
+import HistoricoServ from '../components/servicos/histServicos'
 
 export default class Servicos extends React.Component {
     render() {
@@ -17,7 +13,9 @@ export default class Servicos extends React.Component {
                         Serviços
                     </Card.Header>
                     <Card.Body>
-                        {/* <TestTable></TestTable> */ buscar}
+                        {/* <Servico></Servico> */}
+                        {/* <HistoricoServ></HistoricoServ> */}
+                        <DataTablePage ></DataTablePage>
                     </Card.Body>
                 </Card>
             </Container>
