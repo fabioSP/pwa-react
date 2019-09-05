@@ -1,17 +1,25 @@
 import React from 'react'
-import { Container, Col } from 'react-bootstrap';
-import { buscarServico } from '../components/servicos/busca';
+import { Container, Card } from 'react-bootstrap';
+import { buscarServico } from '../components/servicos/frmServico';
+import { DatatablePage } from '../components/servicos/gridServicos'
+import TestTable from '../components/servicos/testTable'
 
 const buscar = buscarServico();
+
+const grid = DatatablePage();
 
 export default class Servicos extends React.Component {
     render() {
         return (
             <Container>
-                <div><h1>Serviços</h1></div>
-                <Col size="sm">
-                    {buscar}
-                </Col>
+                <Card>
+                    <Card.Header as="h5">
+                        Serviços
+                    </Card.Header>
+                    <Card.Body>
+                        {/* <TestTable></TestTable> */ buscar}
+                    </Card.Body>
+                </Card>
             </Container>
         )
     }
