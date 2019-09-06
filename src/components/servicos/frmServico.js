@@ -8,7 +8,7 @@ export default class Servico extends Component {
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Serviço solicitado</Form.Label>
-                        <Form.Control size="sm" as="select" readOnly disabled>
+                        <Form.Control size="sm" as="select" plaintext readOnly disabled>
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
@@ -16,7 +16,7 @@ export default class Servico extends Component {
 
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Prioridade</Form.Label>
-                        <Form.Control size="sm" as="select" readOnly disabled>
+                        <Form.Control size="sm" as="select" plaintext readOnly disabled>
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
@@ -24,7 +24,7 @@ export default class Servico extends Component {
 
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>Motivo acatamento</Form.Label>
-                        <Form.Control size="sm" as="select" readOnly disabled>
+                        <Form.Control size="sm" as="select" plaintext readOnly disabled>
                             <option>Choose...</option>
                             <option>...</option>
                         </Form.Control>
@@ -35,10 +35,10 @@ export default class Servico extends Component {
                     <Form.Label>ATC</Form.Label>
                     <Row>
                         <Col sm="2">
-                            <Form.Control size="sm" placeholder="1234" readOnly />
+                            <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                         </Col>
                         <Col sm="10">
-                            <Form.Control size="sm" placeholder="1234" readOnly />
+                            <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                         </Col>
                     </Row>
                 </Form.Group>
@@ -47,10 +47,10 @@ export default class Servico extends Component {
                     <Form.Label>Unidade Executante</Form.Label>
                     <Row>
                         <Col sm="2">
-                            <Form.Control size="sm" placeholder="1234" readOnly />
+                            <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                         </Col>
                         <Col sm="10">
-                            <Form.Control size="sm" placeholder="1234" readOnly />
+                            <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                         </Col>
                     </Row>
                 </Form.Group>
@@ -58,23 +58,23 @@ export default class Servico extends Component {
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>PDE</Form.Label>
-                        <Form.Control size="sm" readOnly />
+                        <Form.Control size="sm" plaintext readOnly />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Fornecimento</Form.Label>
-                        <Form.Control size="sm" readOnly />
+                        <Form.Control size="sm" plaintext readOnly />
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
                     <Form.Group as={Col} sm={10} controlId="Endereco_">
                         <Form.Label>Endereço</Form.Label>
-                        <Form.Control size="sm" placeholder="1234" readOnly />
+                        <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                     </Form.Group>
                     <Form.Group as={Col} sm={2} controlId="formGridCity">
                         <Form.Label>Número</Form.Label>
-                        <Form.Control size="sm" readOnly />
+                        <Form.Control size="sm" plaintext readOnly />
                     </Form.Group>
                 </Form.Row>
 
@@ -82,17 +82,17 @@ export default class Servico extends Component {
 
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Complemento</Form.Label>
-                        <Form.Control size="sm" readOnly />
+                        <Form.Control size="sm" plaintext readOnly />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Bairro</Form.Label>
-                        <Form.Control size="sm" readOnly />
+                        <Form.Control size="sm" plaintext readOnly />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridCity">
                         <Form.Label>Município</Form.Label>
-                        <Form.Control size="sm" readOnly />
+                        <Form.Control size="sm" plaintext readOnly />
                     </Form.Group>
 
                 </Form.Row>
@@ -101,45 +101,45 @@ export default class Servico extends Component {
                     <Row>
                         <Col sm="8">
                             <Form.Label>Cliente</Form.Label>
-                            <Form.Control size="sm" placeholder="1234" readOnly />
+                            <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                         </Col>
                         <Col sm="4">
                             <Form.Label>Telefone</Form.Label>
-                            <Form.Control size="sm" placeholder="1234" readOnly />
+                            <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                         </Col>
                     </Row>
                 </Form.Group>
 
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Observações</Form.Label>
-                    <Form.Control size="sm" as="textarea" rows="3" readOnly />
+                    <Form.Control size="sm" as="textarea" rows="3" plaintext readOnly />
                 </Form.Group>
 
                 <Form.Row>
                     <Form.Group as={Col} sm={3} controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Data</Form.Label>
-                        <input className="form-control form-control-sm" type="date" readOnly />
+                        <input className="form-control form-control-sm" type="date" plaintext readOnly />
                     </Form.Group>
 
                     <Form.Group as={Col} sm={3} controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Hora</Form.Label>
-                        <input className="form-control form-control-sm" type="time" readOnly />
+                        <input className="form-control form-control-sm" type="time" plaintext readOnly />
                     </Form.Group>
 
                     <Form.Group as={Col} sm={6} controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Protocolo</Form.Label>
-                        <Form.Control size="sm" placeholder="1234" readOnly />
+                        <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                     </Form.Group>
                 </Form.Row>
 
                 <Form.Row>
                     <Form.Group as={Col} sm={8}>
                         <Form.Label>Atendente</Form.Label>
-                        <Form.Control size="sm" placeholder="1234" readOnly />
+                        <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                     </Form.Group>
                     <Form.Group as={Col} sm={4}>
                         <Form.Label>Ramal</Form.Label>
-                        <Form.Control size="sm" placeholder="1234" readOnly />
+                        <Form.Control size="sm" placeholder="1234" plaintext readOnly />
                     </Form.Group>
                 </Form.Row>
 
