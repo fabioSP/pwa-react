@@ -1,5 +1,5 @@
 import React from 'react'
-import MaterialTable from 'material-table'
+import MaterialTable from '@material-table/core'
 import { Icons } from '../../icons/main'
 
 export default class Editable extends React.Component {
